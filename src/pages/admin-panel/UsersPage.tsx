@@ -27,6 +27,7 @@ import { useAuditUsers } from '@/helpers/queries/user/useAuditUsers';
 import { useLiftSuspension } from '@/helpers/queries/user/useLiftSuspension';
 import { useReinstateUser } from '@/helpers/queries/user/useReinstateUser';
 import { useUserDelete } from '@/helpers/queries/user/useUserDelete';
+import { ModeratorBadge } from '@/assets/svg/ModeratorBadge';
 
 const tabs = [
   { label: 'User Directory', value: 'user-directory' },
@@ -208,6 +209,8 @@ const UsersPage = () => {
                           className="h-8 w-8 rounded-full object-cover"
                         />
                         <span className="font-medium">{u.name}</span>
+
+                        {u.role === 'Moderator' && <ModeratorBadge />}
                       </td>
 
                       <td className="py-4 px-4">{u.email}</td>
